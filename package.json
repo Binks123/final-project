@@ -1,0 +1,67 @@
+{
+  "name": "cookbookagent",
+  "version": "1.0.0",
+  "description": "An intelligent cooking assistant chatbot using HowToCook recipes and LLM capabilities",
+  "main": "dist/src/simple-cli.js",
+  "types": "dist/simple-cli.d.ts",
+  "bin": {
+    "cookingagent": "dist/src/simple-cli.js"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/simple-cli.ts",
+    "dev-ui": "ts-node src/index.ts",
+    "start": "node dist/src/simple-cli.js",
+    "build-data": "ts-node scripts/process-data.ts",
+    "lint": "eslint src scripts --ext .ts,.tsx",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startxxx": "electron .",
+    "pack": "electron-packager . cookbookagent --platform=win32 --arch=x64 --out=out --overwrite"
+
+  },
+  "keywords": [
+    "cooking",
+    "recipes",
+    "ai",
+    "chatbot",
+    "cli",
+    "assistant"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "^1.3.23",
+    "ai": "^4.3.17",
+    "dotenv": "^17.2.0",
+    "ink": "^6.0.1",
+    "ink-text-input": "^6.0.0",
+    "react": "^19.1.0",
+    "typescript": "^5.8.3",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13",
+    "@types/react": "^19.1.8",
+    "ts-node": "^10.9.2"
+  },
+  "pkg": {
+  "scripts": "dist/**/*.js",
+  "assets": [
+    ".env",
+    "data/",
+    "context_engineering/",
+    "docs/"
+  ],
+  "targets": [
+    "node18-win-x64"
+  ],
+  "outputPath": "release"
+  }
+}
